@@ -1,0 +1,45 @@
+{
+    "chapters": [
+        {
+            "id": 1,
+            "display_text": "It is a grey day in Fukashima prefecture, Japan. Driving through the deserted villages of Okuma and Futaba, you see abandoned houses and other small buildings slowly being taken over by vegetation. Eventually you reach the site of the Fukashima II Nuclear Power Plant. There is a bustle of activity as the cleanup operation continues.\nIt’s possible to get from the car park to the main building without protective clothing, but you still swearing face masks.\nIn the briefing room.\na TEPCO engineer walks over to greet you.\nHe suggests an introduction in unit 5 to get your bearings before getting to work investigating the radiother reactors.\nThere is a corridor north that leads to the changing rooms and reactor unit 5.\nThere is a corridor south that leads to the robot control room.",
+            "actions": {
+                "walk north": 2,
+                "walk south": 3,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["https://goo.gl/maps/UReGvgKtxMm"]
+        },
+        {
+            "id": 2,
+            "display_text": "The changing rooms are very bright and sterile. A radiation shielding jumpsuit, gloves, breathing mask, goggles and hard hat lay on a bench near the entrance.\nThere is a door to the north leading to reactor unit 5.\nThere is a door to the south leading back to the briefing room.",
+            "actions": {
+                "walk north": "The engineer stops you and politely suggests you put on protective clothing.",
+                "walk south": 1,
+                "put on protective clothing": 3,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["https://goo.gl/maps/UReGvgKtxMm"]
+        },
+        {
+            "id": 3,
+            "display_text": "The engineer helps you put the jumpsuit and gloves on, taping up the gap between the sleeves and gloves. You put on the face mask which makes it harder to breath. The goggles and hard hat make things more uncomfortable.\nYou are ready to head north to reactor unit 5",
+            "actions": {
+                "walk north": 4,
+                "walk south": 1,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["https://goo.gl/maps/UReGvgKtxMm"]
+        },
+        {
+            "id": 4,
+            "display_text": "You head to a long corridor and make you way to reactor 5.\nEntering the reactor building, there is a large red hatch which is used to access the primary containment vessel.\nMovement is uncomfortable and hot as you carefully navigate through a confusing jumble of walkways,\npipes and machinery in the PCV.\nYou end up under the reactor core.\nThere is a walkway heading back to the changing rooms.",
+            "actions": {
+                "Look": 5,
+                "go back to changing rooms": 1,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["http://www.world-nuclear.org/uploadedImages/org/info/BWR%203.jpg"]
+        }
+    ]
+}
