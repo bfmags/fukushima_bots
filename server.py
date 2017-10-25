@@ -9,15 +9,29 @@ with open('chapters.json') as json_data:
     chapters_list = json.load(json_data)
 
 def get_answer_keyword(chapter_id, answer):
+    max_match = 0
+    answer = str(answer).lower()
     for c in chapters_list['chapters']:
         if int(c['id']) == int(chapter_id):
             for key, value in c['actions'].items():
-                #if key == answer:
-                if sm(key,answer,False) > 0.6:
+                key = str(key).lower()
+                if key == answer:
                     if str(value).isdigit():
                         return get_chapter(value)
                     else:
                         return get_chapter_answer(c['id'], value)
+
+            for key, value in c['actions'].items():
+                #if key == answer:
+                this_match = sm(key,answer,False)
+                if this_match > max_match:
+                    max_match = this_match
+                    max_ans = value
+            if max_match > 0.6:
+                if str(max_ans).isdigit():
+                    return get_chapter(max_ans)
+                else:
+                    return get_chapter_answer(c['id'], max_ans)
             return get_chapter_answer(c['id'], c['actions']['default'])
 
 def get_chapter(chapter_id):
