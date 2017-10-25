@@ -57,7 +57,7 @@
         "default": "you don’t have time for that"
       },
       "external_references": [
-        "reactor.png"
+        "https://github.com/bfmags/interactive_adventure/raw/master/reactor.png"
       ]
     },
     {
@@ -69,7 +69,7 @@
         "default": "you don’t have time for that"
       },
       "external_references": [
-        "reactor.png"
+        "https://github.com/bfmags/interactive_adventure/raw/master/reactor.png"
       ]
     },
     {
@@ -127,7 +127,7 @@
       "actions": {
         "walk north": 8,
         "operate scorpion": 10,
-        "move robot forward": 13
+        "move robot forward": 13,
         "default": "you don’t have time for that"
       },
       "external_references": [
