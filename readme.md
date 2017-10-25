@@ -1,7 +1,8 @@
 # interactive_adventure
 ## Dependencies:
 - pip install flask
-- pip install ntlk
+- pip install nltk
+- pip install requests
 - pip install numpy
 - nltk data, on the Python console (ie. type `python` on the command line): 
 
