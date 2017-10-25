@@ -1,21 +1,20 @@
 {
-    "chapters": [
-        {
+    "chapters": [{
             "id": 1,
-            "display_text": "It is a grey day in Fukashima prefecture, Japan. Driving through the deserted villages of Okuma and Futaba, you see abandoned houses and other small buildings slowly being taken over by vegetation. Eventually you reach the site of the Fukashima II Nuclear Power Plant. There is a bustle of activity as the cleanup operation continues.\nIt’s possible to get from the car park to the main building without protective clothing, but you still swearing face masks.\nIn the briefing room.\na TEPCO engineer walks over to greet you.\nHe suggests an introduction in unit 5 to get your bearings before getting to work investigating the radiother reactors.\nThere is a corridor north that leads to the changing rooms and reactor unit 5.\nThere is a corridor south that leads to the robot control room.",
+            "display_text": "It is a grey day in Fukashima prefecture, Japan. Driving through the deserted villages of Okuma and Futaba, you see abandoned houses and other small buildings slowly being taken over by vegetation. Eventually you reach the site of the Fukashima II Nuclear Power Plant. There is a bustle of activity as the cleanup operation continues.\nIt’s possible to get from the car park to the main building without protective clothing, but you still see people wearing face masks.\nIn the briefing room a TEPCO engineer walks over to greet you and hands you a hard hat.\nHe suggests an introduction in unit 5 to get your bearings before getting to work investigating the radiother reactors.\nThere is a corridor north that leads to the changing rooms and reactor unit 5.\nThere is a corridor south that leads to the robot control room.",
             "actions": {
                 "walk north": 2,
-                "walk south": 3,
+                "walk south": 9,
                 "default": "you don’t have time for that"
             },
             "external_references": ["https://goo.gl/maps/UReGvgKtxMm"]
         },
         {
             "id": 2,
-            "display_text": "The changing rooms are very bright and sterile. A radiation shielding jumpsuit, gloves, breathing mask, goggles and hard hat lay on a bench near the entrance.\nThere is a door to the north leading to reactor unit 5.\nThere is a door to the south leading back to the briefing room.",
+            "display_text": "The changing rooms are very bright and sterile. A radiation shielding jumpsuit, gloves, breathing mask, and goggles on a bench near the entrance.\nThere is a door to the north leading to reactor unit 5.\nThere is a door to the south leading back to the briefing room.",
             "actions": {
                 "walk north": "The engineer stops you and politely suggests you put on protective clothing.",
-                "walk south": 1,
+                "walk south": 8,
                 "put on protective clothing": 3,
                 "default": "you don’t have time for that"
             },
@@ -23,23 +22,92 @@
         },
         {
             "id": 3,
-            "display_text": "The engineer helps you put the jumpsuit and gloves on, taping up the gap between the sleeves and gloves. You put on the face mask which makes it harder to breath. The goggles and hard hat make things more uncomfortable.\nYou are ready to head north to reactor unit 5",
+            "display_text": "The engineer helps you put the jumpsuit and gloves on, taping up the gap between the sleeves and gloves. You put on the face mask which makes it harder to breath. The goggles under the hard hat make things more uncomfortable.\nYou are ready to head north to reactor unit 5",
             "actions": {
                 "walk north": 4,
-                "walk south": 1,
+                "walk south": 7,
                 "default": "you don’t have time for that"
             },
             "external_references": ["https://goo.gl/maps/UReGvgKtxMm"]
         },
         {
             "id": 4,
-            "display_text": "You head to a long corridor and make you way to reactor 5.\nEntering the reactor building, there is a large red hatch which is used to access the primary containment vessel.\nMovement is uncomfortable and hot as you carefully navigate through a confusing jumble of walkways,\npipes and machinery in the PCV.\nYou end up under the reactor core.\nThere is a walkway heading back to the changing rooms.",
+            "display_text": "You head to a long corridor and make you way to reactor 5 with the engineer.\nEntering the reactor building, there is a large red hatch which is used to access the primary containment vessel.\nThe engineer advises to keep an eye on your dosimeter which measures the surrounding radiation levels.\nMovement is uncomfortable and hot as you carefully navigate through a confusing jumble of walkways, pipes and machinery in the PCV.\nYou end up under the reactor core.\nThere is a walkway heading back to the changing rooms.",
             "actions": {
-                "Look": 5,
-                "go back to changing rooms": 1,
+                "Look around": 5,
+                "go back to changing rooms": 6,
                 "default": "you don’t have time for that"
             },
             "external_references": ["http://www.world-nuclear.org/uploadedImages/org/info/BWR%203.jpg"]
+        },
+        {
+            "id": 5,
+            "display_text": "You are currently standing directly below reactor 5's core in an area known as the pedestal.\nThere is not enough space to stand up straight and you stoop low to avoid hitting your head against control rods protruding out of the reactor core.\nThe engineer explains that it is this same area in reactors 2 and 3 where radioactive fuel is thought to have melted through the reactor core.\nThere is walkway south which leads back to the changing rooms",
+            "actions": {
+                "walk south": 6,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["reactor.png"]
+        },
+        {
+            "id": 6,
+            "display_text": "You and the engineer navigate the walkways and corridor back to the changing rooms.\nThe changing rooms are a relief after the cramp conditions in the reactor.\nThere is a door to the north leading to reactor unit 5.\nThere is a door to the south leading back to the briefing room.",
+            "actions": {
+                "walk north": 4,
+                "walk south": 7,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["reactor.png"]
+        },
+        {
+            "id": 7,
+            "display_text": "The engineer politely suggests that you remove your protective clothing",
+            "actions": {
+                "remove protective clothing": 8,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["https://drive.google.com/open?id=0B_1zdItaAjijQWEzbEZWdjFKbW8"]
+        },
+        {
+            "id": 8,
+            "display_text": "You are back in the breifing room. \nThere is a corridor north that leads to the changing rooms and reactor unit 5.\nThere is a corridor south that leads to the robot control room.",
+            "actions": {
+                "walk north": 2,
+                "walk south": 9,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["reactor.png"]
+        },
+        {
+            "id": 9,
+            "display_text": "You enter a busy control room. There is a desk with two screens. Beneath each of these screens sits a control panel and joystick. The engineer gestures for you to take a seat at the desk and operate one of the controls.\nOne screen is labelled 'Reactor 2: Scorpion'.\nThe other screen is labelled 'Reactor 3: Little Sunfish'\nThe door to the north leads back to the breifing room",
+            "actions": {
+                "operate scorpion": 10,
+                "operate little sunfish": 11,
+                "walk north": 8,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["https://ichef.bbci.co.uk/news/660/cpsprodpb/3D05/production/_96512651_040066416.jpg"]
+        },
+        {
+            "id": 10,
+            "display_text": "The screen springs to life and displays a feed from the 'Scorpion' robot. So-called because it can lift up its camera-mounted tail to achieve better viewing angles, is also designed to crawl over rubble inside the damaged reactor.",
+            "actions": {
+                "walk north": 8,
+                "operate little sunfish": 11,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["http://media.spokesman.com/photos/2015/07/01/aw1_Japan_Nuclear_Robot.jpg"]
+        },
+        {
+            "id": 11,
+            "display_text": "The screen springs to life and displays a feed from the 'Little Sunfish' aquatic robot. The size of a loaf of bread, the little sunfish is equipped for its tough mission with lights, manoeuvres with tail propellers and can collect data with two cameras and a dosimeter to measure radiation.",
+            "actions": {
+                "walk north": 8,
+                "operate scorpion": 10,
+                "default": "you don’t have time for that"
+            },
+            "external_references": ["https://ichef.bbci.co.uk/news/660/cpsprodpb/12765/production/_96512657_040066238.jpg"]
         }
     ]
 }
