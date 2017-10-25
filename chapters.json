@@ -127,7 +127,7 @@
       "actions": {
         "walk north": 8,
         "operate scorpion": 10,
-        "move robot forward": 13
+        "move robot forward": 13,
         "default": "you don’t have time for that"
       },
       "external_references": [
