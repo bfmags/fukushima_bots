@@ -2,7 +2,7 @@
   "chapters": [
     {
       "id": 1,
-      "display_text": "It is a grey day in Fukashima prefecture, Japan. Driving through the deserted villages of Okuma and Futaba, you see abandoned houses and other small buildings slowly being taken over by vegetation. You reach the site of the Fukashima II Nuclear Power Plant.\nIt’s possible to get from the car park to the main building without protective clothing.\nIn the briefing room a TEPCO engineer walks over to greet you and hands you a hard hat.\nHe suggests an introduction in unit 5 to get your bearings before getting to work investigating the other reactors.\nThere is a corridor north that leads to the changing rooms and reactor unit 5.\nThere is a corridor south that leads to the robot control room.",
+      "display_text": "It is a grey day in Fukushima prefecture, Japan. Driving through the deserted villages of Okuma and Futaba, you see abandoned houses and other small buildings slowly being taken over by vegetation. You reach the site of the Fukushima II Nuclear Power Plant.\nIt’s possible to get from the car park to the main building without protective clothing.\nIn the briefing room a TEPCO engineer walks over to greet you and hands you a hard hat.\nHe suggests an introduction in unit 5 to get your bearings before getting to work investigating the other reactors.\nThere is a corridor north that leads to the changing rooms and reactor unit 5.\nThere is a corridor south that leads to the robot control room.",
       "actions": {
         "walk north": 2,
         "walk south": 9,
@@ -159,7 +159,7 @@
     },
     {
       "id": 14,
-      "display_text": "Congratulations. For more information on the Fukashima robots have a look at http://www.bbc.co.uk/news/world-asia-40696303",
+      "display_text": "Congratulations. For more information on the Fukushima robots have a look at http://www.bbc.co.uk/news/world-asia-40696303",
       "actions": {
         "end": 14,
         "default": "you don’t have time for that"
