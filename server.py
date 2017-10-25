@@ -1,6 +1,6 @@
 import requests, json
 from flask import Flask, request, Response
-import keywords
+from similarity import similarity as sm
 import json
 
 app = Flask(__name__)
@@ -12,9 +12,8 @@ def get_answer_keyword(chapter_id, answer):
     for c in chapters_list['chapters']:
         if int(c['id']) == int(chapter_id):
             for key, value in c['actions'].items():
-                print key
-                print answer
-                if key == answer:
+                #if key == answer:
+                if sm(key,answer,False) > 0.6:
                     if str(value).isdigit():
                         return get_chapter(value)
                     else:
