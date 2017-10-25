@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en-GB">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>IEEAG - Game</title>
+		<meta name="description" content="ieeag, game">
+		<link rel="shortcut icon" type="image/png" href="./micro.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./main.css">
+	</head>
+	<body>
+		<input type="checkbox" id="switch" unchecked>
+		<div class="container">
+			<div id="blq-main" class="screen">
+				<div id="textbox">
+					<div id="cutter">
+						<span id="demo">Fukushima Daiichi Nuclear Power Plant OS v.0.2 alpha 2.<br />Sytem Check Initialized<br />Intel 8008<br />2K RAM<br />System OK<br /><br />© Dolan O'Toole, Charlie Rogers, Bruno Magalhaes &amp; William French<br /><br />System booting...<br /><br /><br /><br /><br /><br /></span>
+					</div>
+					<form id="form">
+						<input type="text" id="input" name="textbox" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+					</form>
+				</div>
+			</div>
+			<div class="overlay"></div>
+			<div class="monitor"></div>
+		</div>
+		<div id="notes"><p>Plant Notebook</p>
+			<div id="note-content"></div>
+		</div>
+		<input type='button' value='button stuff' id='record' />
+		<div id="buttons">
+		</div>
+		<script type="text/javascript">
+
+			const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+	    const recognition = new SpeechRecognition();
+			document.getElementById('record').addEventListener('click', (e) => recognition.start());
+	    recognition.onresult = event => doEvents(event.results[event.resultIndex][0].transcript);
+
+			document.getElementById('buttons').addEventListener('click', (e) => doEvents(e.target.innerText));
+			document.getElementById('switch').addEventListener('change', (e) => (e.target.checked && doEvents('')));
+			document.getElementById('form').addEventListener('submit', (e) => {
+				e.preventDefault();
+				const input = document.getElementById('input');
+				const string = input.value;
+				input.value = '';
+				doEvents(string);
+			})
+
+			function resetEverything() {
+				document.getElementById('buttons').style.opacity = 0;
+			}
+
+			let chapter = 1;
+
+			function doEvents(string) {
+				resetEverything();
+				if (string) {
+					document.getElementById('demo').innerHTML += `<span class="right">${string}</span>`;
+				}
+				const url = `http://127.0.0.1:5000/${chapter}/` + (string ? string + '/' : '');
+				fetch(url)
+				.then(response => response.json())
+				.then(data => {
+					typeWriter(data.display_text);
+					repeatBack(data.display_text);
+					chapter = data.id;
+					document.getElementById('note-content').innerHTML += data.external_references.map((ref) => `<img src="${ref}" />`).join('<br />');
+					if (data.actions.length) {
+						const buttons = document.getElementById('buttons');
+						if (data.actions[0]) {
+							buttons.innerHTML = `<button class="push--red"><span>${data.actions[0]}</span></button>`;
+						}
+						if (data.actions[1]) {
+							buttons.innerHTML += `<button class="push--yellow"><span>${data.actions[1]}</span></button>`;
+						}
+						if (data.actions[2]) {
+							buttons.innerHTML += `<button class="push--blue"><span>${data.actions[2]}</span></button>`;
+						}
+						if (data.actions[3]) {
+							buttons.innerHTML += `<button class="push--green"><span>${data.actions[3]}</span></button>`;
+						}
+						buttons.style.opacity = 1;
+					}
+					document.getElementById('input').focus();
+				});
+			}
+
+			function typeWriter(text, i = 0) {
+				if (i < text.length) {
+					document.getElementById('demo').innerHTML += text.charAt(i);
+					i++;
+					setTimeout(() => typeWriter(text, i), 40);
+				}
+			}
+
+			const speechSynthesis = window.speechSynthesis;
+			const awaitVoices = new Promise(done => speechSynthesis.onvoiceschanged = done);
+			function repeatBack(message) {
+				awaitVoices.then(()=> {
+					const voices = speechSynthesis.getVoices();
+					const speech = new SpeechSynthesisUtterance();
+					speech.text = message;
+					speech.voice = voices[0];
+					speechSynthesis.speak(speech);
+				});
+			}
+		</script>
+	</body>
+</html>

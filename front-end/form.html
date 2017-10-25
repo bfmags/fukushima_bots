@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style>
+      html, body {
+        background-color: #f4f4f4;
+      }
+      input, button {
+        cursor: pointer;
+      }
+      .content {
+        word-break: break-word;
+        background: #fff;
+        padding: 8px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, .3);
+      }
+    </style>
+    <title>IEEAG - Addition Tool</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content rounded">
+        <h1>IEEAG <small class="text-muted">Addition Tool</small></h1>
+        <form id='form'>
+          <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" class="form-control" id="id">
+          </div>
+          <div class="form-group">
+            <label for="display">Display Text:</label>
+            <input type="text" class="form-control" id="display">
+          </div>
+
+          <div class="form-group">
+            Actions:
+            <div id="actions">
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Action">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Next ID">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+              <label for="default">Default Response:</label>
+              <input type="text" class="form-control" id="default">
+            </div>
+            </div>
+          </div>
+            <button type="button" class="btn btn-default btn-sm" id="add_act">Add More</button>
+          </div>
+
+          <div class="form-group">
+            <label id="external_references">External References:
+              <input type="text" class="form-control">
+            </label>
+            <button type="button" class="btn btn-default btn-sm" id='add_ext'>Add More</button>
+          </div>
+
+          <button type="submit" class="btn btn-default" id="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script>
+
+      document.getElementById('add_act').addEventListener('click', (e) => document.getElementById('actions').innerHTML += '<div class="row"><div class="col"><input type="text" class="form-control" placeholder="Action"></div><div class="col"><input type="text" class="form-control" placeholder="Next ID"></div></div><div class="row">  <div class="col">  <label for="default">Default Response:</label>  <input type="text" class="form-control" id="default"></div></div>');
+      document.getElementById('add_ext').addEventListener('click', (e) => document.getElementById('external_references').innerHTML += '<input type="text" class="form-control">');
+
+
+      document.getElementById('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const actions = []//[{key, value}]
+        const external_references_inputs = document.getElementById('external_references').getElementsByTagName('input');
+        const external_references = [];
+        const jsonObject = {
+        id: this.id.value,
+        display_text: this.display.value,
+        actions,
+        external_references
+        }
+        console.log(this.id.value);
+      })
+    </script>
+  </body>
+</html>
