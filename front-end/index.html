@@ -15,7 +15,7 @@
 			<div id="blq-main" class="screen">
 				<div id="textbox">
 					<div id="cutter">
-						<span id="demo">Fukushima Daiichi Nuclear Power Plant OS v.0.2 alpha 2.<br />Sytem Check Initialized<br />Intel 8008<br />2K RAM<br />System OK<br /><br />© Dolan O'Toole, Charlie Rogers, Bruno Magalhaes &amp; William French<br /><br />System booting...<br /><br /><br /><br /><br /><br /></span>
+						<span id="demo">Fukushima Daiichi Nuclear Power Plant OS v.0.2 alpha 2.<br />Sytem Check Initialized<br />Intel 8008<br />2K System Memory<br />System OK<br /><br />© Dolan O'Toole, Charlie Rogers, Bruno Magalhaes &amp; William French<br /><br />System booting...<br /><br /><br /><br /><br /><br /></span>
 					</div>
 					<form id="form">
 						<input type="text" id="input" name="textbox" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
@@ -91,7 +91,7 @@
 				if (i < text.length) {
 					document.getElementById('demo').innerHTML += text.charAt(i);
 					i++;
-					setTimeout(() => typeWriter(text, i), 40);
+					setTimeout(() => typeWriter(text, i), 22);
 				}
 			}
 

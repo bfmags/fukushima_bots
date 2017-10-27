@@ -13,3 +13,11 @@
     >>> nltk.download('wordnet')
     >>> nltk.download('brown')
     ```
+
+
+## Front end:
+
+```
+cd front-end
+python -m SimpleHTTPServer
+```
